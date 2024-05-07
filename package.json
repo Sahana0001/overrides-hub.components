@@ -2,6 +2,13 @@
   "name": "Hub.Components",
   "version": "2.0.2",
   "devDependencies": {
-    "@iqmetrix/hub.common.tooling": "^2.8.4"
+    "@iqmetrix/hub.common.tooling": "2.10.0-alpha.3"
+  },
+  "overrides": {
+   "constantinople":"3.1.1",
+    "lodash":"4.17.21",
+    "uglify-js": "2.6.0",
+    "glob-parent": "5.1.2",
+    "trim-newlines": "4.0.1"
   }
 }
