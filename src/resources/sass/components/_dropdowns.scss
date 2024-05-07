@@ -1,0 +1,26 @@
+/* -- links and swatches -- */
+
+.select2-chosen,
+.select2-result {
+    .dropdown-link {
+        display: inline-block;
+        text-decoration: underline;
+        color: $brand-primary;
+    }
+    .dropdown-swatch {
+        display: inline-block;
+        border: solid 1px $gray-light;
+        width: .75rem;
+        height: .75rem;
+        margin-top: .4rem;
+    }
+}
+
+html > body .select2-container .select2-chosen {
+    > .select2-selection {
+        border-left: 0;
+    }
+    .dropdown-swatch.invisible {
+        display: none;
+    }
+}

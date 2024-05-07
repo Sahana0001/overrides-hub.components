@@ -1,0 +1,224 @@
+/* -- Tree Variables -- */
+
+$nesting-size:          1em;
+$icon-list-content:     "\f03a";
+$icon-folder-content:   "\f07c";
+$icon-folder-close:     "\f07b";
+$opacity-enabled:       1;
+$opacity-disabled:      .5;
+$opacity-option:        .5;
+$cursor-enabled:        pointer;
+$cursor-disabled:       not-allowed;
+
+$table-background-selected:            $brand-primary;
+$table-background-hover:               $brand-lighter;
+$table-color:                          $brand-primary;
+$table-selected-color:                 $white;
+
+/* --  Tree Mixins --  */
+
+@mixin mixin-disable-node {
+    cursor: $cursor-disabled;
+    @include opacity($opacity-disabled);
+
+    div, span, i, button {
+        cursor: $cursor-disabled;
+        @include opacity($opacity-disabled);
+    }
+
+    div:hover {
+        background-color: $white;
+    }
+
+    .branch {
+        cursor: $cursor-disabled;
+
+        &:hover span {
+            cursor: $cursor-disabled;
+        }
+    }
+
+    .selected {
+        cursor: $cursor-disabled;
+        @include opacity($opacity-disabled);
+        background-color: $table-background-selected;
+    }
+
+    .selected:hover {
+        @include opacity($opacity-enabled);
+        background-color: $table-background-selected;
+    }
+}
+
+@mixin mixin-tree-node {
+    @include noselect;
+    margin-left: 0;
+
+    li {
+        position: relative;
+        @include noselect;
+        list-style-type: none;
+        word-break: break-word;
+
+        .name {
+            @include noselect;
+            cursor: $cursor-enabled;
+        }
+
+        > .icon-node-collapse.selected {
+            color: $table-selected-color;
+        }
+
+        > .branch, div {
+            @include noselect;
+            padding: 5px;
+            padding-left: 24px;
+            cursor: $cursor-enabled;
+
+            &:hover {
+                background-color: $table-background-hover;
+            }
+            &.selected {
+                color: $table-selected-color;
+                background-color: $table-background-selected;
+            }
+            &:before {
+                font-family: fontawesome;
+                font-size: 1.1em;
+            }
+
+            &:hover {
+                .dropdown {
+                    .caret {
+                        @include opacity($opacity-option);
+                    }
+                    &:hover .caret {
+                        @include opacity($opacity-enabled);
+                    }
+                }
+            }
+
+            &.open {
+                .dropdown-menu {
+                    display: block;
+                }
+            }
+        }
+
+        i.icon-node-collapse {
+            @include noselect;
+            @extend .icon-caret-down;
+            float: left;
+            display: block;
+            padding: 0.47em 0.5em 0.45em;
+            width: 1.7em;
+            z-index: 1;
+            text-align: center;
+            cursor: $cursor-enabled;
+
+            &.hidden {
+                visibility: hidden;
+                display: block !important;
+            }
+        }
+
+        .new-node {
+            background-color: #DFF0D8;
+        }
+    }
+}
+
+.role-icon {
+    margin-right: 5px;
+}
+
+.disable-click{
+    pointer-events:none;
+}
+
+/*Indenting tree rows manually with counters so that entire row highlights*/
+ul.tree-view {
+    padding: 0;
+}
+
+ul.tree-view ul {
+    counter-reset: x;
+    padding: 0;
+}
+
+ul.tree-view ul li:before {
+    counter-increment: x;
+    letter-spacing: $nesting-size;
+    content: counters(x, "", disc);
+    float: left;
+    visibility: hidden;
+}
+
+/* --  Tree View --  */
+.tree-view {
+    @include mixin-tree-node;
+    color: $table-color;
+    padding: 0;
+    margin: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    &.disabled,
+    .disabled {
+        @include mixin-disable-node;
+    }
+
+    h3 + ul {
+        padding-left: 0;
+    }
+
+    h4 {
+        border-bottom: 1px solid $gray-light;
+    }
+
+    li.collapsed {
+        ul, li {
+            display: none;
+        }
+        i.icon-node-collapse {
+            @extend .icon-caret-right;
+        }
+    }
+    ul {
+        li {
+            div {
+                &.classification-item:before,
+                &.tree-node:before {
+                    content: $icon-list-content;
+                }
+                &.classification-root:before,
+                &.tree-folder:before,
+                &.category-item:before {
+                    content: $icon-folder-content;
+                }
+            }
+        }
+    }
+
+    li.collapsed {
+        > div.category-item:before,
+        > div.tree-folder:before {
+            content: $icon-folder-close;
+        }
+    }
+
+
+    ul.dropdown-menu {
+        padding-left: 0;
+    }
+}
+
+/* -- for company root node -- */
+
+ul.tree-view {
+    @include mixin-tree-node;
+}
+
+.tree-view .root-tree {
+    padding-left: 0;
+}

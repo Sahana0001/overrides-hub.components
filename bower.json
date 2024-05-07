@@ -1,0 +1,11 @@
+{
+  "name": "Hub.Components",
+  "version": "2.0.2",
+  "main": "src/core.react.js",
+  "dependencies": {
+    "react": "~0.13.2",
+    "jquery": "1.10.2",
+    "hub.common.styling": "git@github.com:iQmetrix/Hub.Common.Styling.git#1.x.x",
+    "dragula.js": "dragula#^3.7.2"
+  }
+}

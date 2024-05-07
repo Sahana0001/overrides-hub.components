@@ -1,0 +1,59 @@
+/* -- Variables -- */
+
+$preload-padding:   $line-height-computed / 2;
+$preload-corners:   5px;
+$preload-size:      45px;
+$preload-message:   200px;
+$preload-text:      33px;
+$preload-fadein:    350ms;
+
+$preload-img-size:  32px;
+$preload-img-href:  $hub-resources + "/sass/themes/default/images/ajax-loader.gif";
+
+
+
+
+/* -- Preloader styles -- */
+
+.preloader-fadein {
+    @include animation(fadein $preload-fadein);
+}
+
+.preloader-container {
+    position: relative;
+    height: 100%;
+}
+
+.preloader-widget {
+    @include rounded($preload-corners);
+    padding: $preload-padding;
+    margin: auto;
+    margin-top: $line-height-computed;
+    width: $preload-size;
+    height: $preload-size;
+
+    &.hasLoadingMessage {
+        width: $preload-message;
+    }
+}
+
+.preloader-text {
+    line-height: $preload-text;
+}
+
+
+
+
+/* -- Image Preloader styles -- */
+
+.imagePreloader {
+    background-image: url($preload-img-href);
+    height: $preload-img-size;
+    width: $preload-img-size;
+    display: inline-block;
+    margin-right: $grid-gutter-width / 3;
+    float: left;
+
+    font-size: 3em;
+    position: relative;
+}

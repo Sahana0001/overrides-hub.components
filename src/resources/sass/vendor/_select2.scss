@@ -1,0 +1,186 @@
+@import "libs/select2/select2.css";
+@import "libs/select2-bootstrap-css/select2-bootstrap.css";
+
+
+/* Variables
+-------------------------------------------------- */
+
+$select2                       : "libs/select2/";
+$select2-search-bg-inactive    : $select2 + "select2.png";
+$select2-search-bg-active      : $select2 + "select2-spinner.gif";
+$select2-search-bg-light       : #fff;
+$select2-search-bg-dark        : #eee;
+$select2-search-bg-color       : $select2-search-bg-light;
+$select2-search-gradient-dark  : $select2-search-bg-dark 99%;
+$select2-search-gradient-light : $select2-search-bg-light 85%;
+
+
+/* Mixins
+-------------------------------------------------- */
+
+@mixin search-field($search-bg) {
+    background: #fff $search-bg;
+    background: $search-bg, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, $select2-search-bg-light), color-stop(0.99, $select2-search-bg-dark));
+    background: $search-bg, -webkit-linear-gradient(center bottom, $select2-search-gradient-light, $select2-search-gradient-dark);
+    background: $search-bg, -moz-linear-gradient(center bottom, $select2-search-gradient-light, $select2-search-gradient-dark);
+    background: $search-bg, -o-linear-gradient(bottom, $select2-search-gradient-light, $select2-search-gradient-dark);
+    background: $search-bg, -ms-linear-gradient(top, $select2-search-gradient-light, $select2-search-gradient-dark);
+    background: $search-bg, linear-gradient(top, $select2-search-gradient-light, $select2-search-gradient-dark);
+}
+
+
+/* Select2 - multiple choice dropdowns
+-------------------------------------------------- */
+
+.select2-container {
+    .select2-choice abbr {
+        background: url($select2-search-bg-inactive) right top no-repeat;
+    }
+
+    .select2-choice .select2-arrow b {
+        background: url($select2-search-bg-inactive) no-repeat 0 1px;
+    }
+
+    &.select2-container-active.select2-dropdown-open .select2-choice {
+        border-bottom: 0;
+    }
+
+    &.form-control {
+        padding-right: 0;
+    }
+}
+
+.select2-search {
+    input {
+        @include search-field(url($select2-search-bg-inactive) no-repeat 100% -22px);
+    }
+
+    input.select2-active {
+        @include search-field(url($select2-search-bg-active) no-repeat 100%);
+    }
+}
+
+.select2-more-results.select2-active {
+    background: #f4f4f4 url($select2-search-bg-active) no-repeat 100%;
+}
+
+.select2-container-multi .select2-choices .select2-search-field input.select2-active {
+    background: #fff url($select2-search-bg-active) no-repeat 100% !important;
+}
+
+.select2-search-choice-close {
+    background: url($select2-search-bg-inactive) right top no-repeat;
+}
+
+
+/* Select2 - Multiple choice tags
+-------------------------------------------------- */
+
+.select2-container-multi {
+    .select2-search-field {
+        width: 100%;
+    }
+    .select2-choices {
+        border: 1px solid $gray;
+        padding: 2px 0;
+        background-image: none;
+
+        .select2-search-choice {
+            background-color: $brand-primary;
+            position: relative;
+            display: inline-block;
+            border: none;
+            padding: 0.6em 3em 0.6em 1em;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 4px;
+            border-radius: 0.5em;
+            min-width: 8.5em;
+            font-size: 0.8em;
+            font-weight: normal;
+            color: $white;
+            +.select2-search-field {
+                width: auto;
+            }
+            > div {
+                display: inline-block;
+                float: none;
+            }
+        }
+        .select2-search-choice-close {
+            background: none;
+            position: absolute;
+            top: 0.8em;
+            right: 0.4em;
+            left: auto;
+            font-weight: bold;
+            font-size: 1.4em;
+            text-decoration: none;
+            color: $white;
+            &:before {
+                content: "×";
+            }
+        }
+    }
+}
+
+
+/* Select2 - highlighting
+-------------------------------------------------- */
+
+.select2-results {
+    .select2-highlighted {
+        color: $gray-darker;
+        background-color: $brand-lighter;
+    }
+}
+
+
+/* Select2 - Bootstrap's missing error styling
+-------------------------------------------------- */
+
+.has-error {
+    .select2-input,
+    .select2-default,
+    .select2-choices {
+        border-color: $error-text-color;
+    }
+}
+
+.select2-results {
+    .level0 {
+        margin-left: 0px;
+    }
+    .level1 {
+        margin-left: 10px;
+    }
+    .level2 {
+        margin-left: 20px;
+    }
+    .level3 {
+        margin-left: 30px;
+    }
+    .level4 {
+        margin-left: 40px;
+    }
+    .level5 {
+        margin-left: 50px;
+    }
+    .level6 {
+        margin-left: 60px;
+    }
+    .select2-disabled {
+        color: #999;
+    }
+}
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)  {
+  .select2-search input, .select2-search-choice-close, .select2-container .select2-choice abbr, .select2-container .select2-choice .select2-arrow b {
+      background-image: url($select2 + 'select2x2.png') !important;
+  }
+}
+
+.select2-default {
+    color: $gray-light !important;
+}

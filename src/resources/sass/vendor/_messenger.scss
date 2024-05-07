@@ -1,0 +1,6 @@
+@import "libs/messenger/build/css/messenger.css";
+@import "libs/messenger/build/css/messenger-theme-block.css";
+
+.alert-error {
+  @include alert-variant($error-text-background, $error-text-border, $error-text-color);
+}

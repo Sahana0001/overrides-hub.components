@@ -1,0 +1,23 @@
+@import "libs/bootstrap-daterangepicker/daterangepicker.css";
+
+.date-picker {
+    border: 1px solid $input-border;
+    cursor: pointer;
+    text-align: center;
+    color: $brand-primary;
+    padding: 5px;
+
+    &:hover {
+        border: 1px solid $brand-primary;
+    }
+    @include rounded(4px);
+}
+
+.daterangepicker td.active {
+    background-color: $brand-primary;
+}
+.daterangepicker .fa {
+    float: none;
+    color: inherit;
+    visibility: visible;
+}

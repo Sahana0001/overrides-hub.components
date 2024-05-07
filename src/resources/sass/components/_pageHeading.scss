@@ -1,0 +1,38 @@
+/* Headers with counts ie. AdPlay Displays (20)
+   --------------------------------------------------*/
+
+@media (max-width: $screen-xs-max) {
+    .page-header.inline-header {
+        &.extended,
+        > * {
+            display: block;
+        }
+
+        > * + * {
+            padding-left: 0;
+        }
+    }
+
+    .page-header-action {
+        .dropdown-menu.dropdown-menu-right {
+            right: auto;
+        }
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+    .page-header-title {
+        > * {
+            display: table-cell;
+        }
+    }
+    .page-header-action {
+        vertical-align: middle;
+        * {
+            white-space: nowrap;
+        }
+    }
+    .heading-name {
+        margin: 0;
+    }
+}

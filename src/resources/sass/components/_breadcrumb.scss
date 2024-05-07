@@ -1,0 +1,18 @@
+.breadcrumb {
+    font-family: $font-family-sans-serif;
+    padding-left: $grid-gutter-width / 2;
+    background-color: $white;
+    margin-bottom: 0;
+
+    > li + li:before {
+        content: "\f105";
+        font-family: 'fontawesome';
+        padding: 0 pxToEm(8);
+        color: $gray-darker;
+    }
+
+    a, span {
+        font-size: pxToEm(12);
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,119 @@
+@import "libs/x-editable/dist/bootstrap-editable/css/bootstrap-editable.css";
+
+.editable {
+
+    input {
+        margin-bottom: 0px;
+    }
+
+    .editable-input {
+        input[type="text"].form-control {
+            height: auto;
+        }
+    }
+
+    .control-group {
+
+        margin-bottom: 0px;
+        display: block;
+
+        .editable-buttons {
+            display: block;
+            margin: 10px 0px;
+        }
+
+        .control-label {
+            color: $brand-primary;
+            text-align: left;
+            padding-left: 10px;
+        }
+        &.error .control-label {
+            color: $red;
+        }
+
+        .editable-error-block {
+            display: inline-block;
+        }
+
+        margin-bottom: 0;
+        padding: 7px 0;
+
+        [class*="span"] {
+            min-height: 0;
+        }
+
+        i.icon-pencil {
+            margin-right: 2.12%;
+            cursor: pointer;
+            display: none;
+        }
+
+        &.editable:hover {
+            background-color: $brand-lighter;
+
+            i.icon-pencil {
+                display: inline-block;
+            }
+        }
+
+        &.editable-section {
+            background-color: $brand-lighter;
+        }
+
+        .controls {
+            position: relative;
+
+            .info-block {
+                padding-right: 35px;
+            }
+
+            .icon-pencil {
+                position: absolute;
+                top: 5px;
+                right: -2px;
+            }
+        }
+    }
+}
+
+html .editable.error {
+    label.control-label {
+        color: $red;
+    }
+    input[type="text"],
+    input[type="password"] {
+        border-color: $error-text-border;
+
+        &:focus {
+            outline: 0;
+            border-color: $red;
+            @include box-shadow(0 0 6px lighten($red, 20%));
+        }
+    }
+}
+
+.editableform-loading {
+    background: url($hub-resources + '/sass/themes/default/images/ajax-loader.gif') center center no-repeat;
+    height: auto;
+    width: auto;
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.editable-empty{
+    &:hover{
+        color: #808080;
+    }
+    color: #808080;
+}
+
+.editable-click,
+a.editable-click,
+a.editable-click:hover {
+    text-decoration: none;
+    border: none;
+}
+
+fieldset .control-label {
+    margin-top: 5px;
+}

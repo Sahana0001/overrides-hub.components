@@ -1,0 +1,16 @@
+.tooltip {
+    &.in {
+        opacity: 1.0;
+    }
+    .tooltip-inner {
+        max-width: 300px;
+        width: 300px;
+        padding: 10px;
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-base;
+        background-color: $gray-darker;
+        text-align: left;
+    }
+}
+

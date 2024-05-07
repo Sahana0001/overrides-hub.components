@@ -1,0 +1,54 @@
+@import "libs/mediaelement/build/mediaelementplayer.css";
+$mediaelement: "libs/mediaelement/build/";
+
+.mejs-overlay-button {
+    background: url($mediaelement + 'bigplay.svg') no-repeat;
+}
+
+.no-svg .mejs-overlay-button {
+    background-image: url($mediaelement + 'bigplay.png');
+}
+
+.mejs-overlay-loading {
+    background: url($mediaelement + 'background.png');
+}
+
+.mejs-overlay-loading span {
+    background: transparent url($mediaelement + 'loading.gif') 50% 50% no-repeat;
+}
+
+.mejs-container .mejs-controls {
+    background: url($mediaelement + 'background.png');
+}
+
+.no-svg .mejs-controls .mejs-button button {
+    background-image: url($mediaelement + 'controls.png');
+}
+
+.mejs-controls .mejs-button button {
+    background-image: url($mediaelement + 'controls.svg');
+}
+
+.mejs-controls .mejs-volume-button .mejs-volume-slider {
+    background: url($mediaelement + 'background.png');
+}
+
+.mejs-controls .mejs-captions-button .mejs-captions-selector {
+    background: url($mediaelement + 'background.png');
+}
+
+.mejs-captions-text {
+    background: url($mediaelement + 'background.png');
+}
+
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
+    background: url($mediaelement + 'background.png');
+}
+
+.mejs-postroll-layer {
+    background: url($mediaelement + 'background.png');
+}
+
+.mejs-postroll-close {
+    background: url($mediaelement + 'background.png');
+}

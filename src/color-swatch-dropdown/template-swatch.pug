@@ -1,0 +1,22 @@
+| {{#if showSwatch}}
+
+
+| {{#if colorCode}}
+span.dropdown-swatch(style="background-color:{{colorCode}}")
+| {{/if}}
+
+| {{#if colorImage}}
+span.dropdown-swatch(style="background-image: url('{{colorImage}})')")
+| {{/if}}
+
+| {{{text}}}
+
+
+| {{else}}
+
+
+span.dropdown-swatch.invisible
+| &nbsp;{{{text}}}
+
+
+| {{/if}}

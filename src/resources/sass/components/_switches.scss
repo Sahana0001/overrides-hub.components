@@ -1,0 +1,12 @@
+@import "../vendor/bootstrap-switch";
+
+.bootstrap-switch {
+    padding: 0;
+
+    &.bootstrap-switch-wrapper,
+    &.bootstrap-switch-on,
+    &.bootstraps-switch-small,
+    .bootstrap-switch-container {
+        padding: 0;
+    }
+}

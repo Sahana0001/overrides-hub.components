@@ -1,0 +1,16 @@
+@import "libs/dragula.js/dist/dragula.css";
+
+.dnd-list-item {
+    .nested {
+        padding: 3px 0;
+    }
+}
+
+.gu-mirror {
+    display: none;
+}
+
+.dnd-list-item.gu-transit {
+    opacity: 0.7;
+    @extend .collapsed;
+}

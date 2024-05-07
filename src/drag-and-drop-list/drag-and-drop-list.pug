@@ -1,0 +1,9 @@
+| {{#if isListOnly}}
+| {{#if canHaveChildren}}
+i.icon-node-collapse.x-collapse
+| {{/if}}
+.x-item-label
+    | &nbsp;
+    span.item-name {{Name}}
+| {{/if}}
+ul.tree-view.x-child-items.nested(class="{{#unless canHaveChildren}}hidden{{/unless}}")

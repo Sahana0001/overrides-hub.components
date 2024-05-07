@@ -1,0 +1,11 @@
+.bulk-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0px;
+
+    .selected-count {
+        margin-right: 5px;
+    }
+}
