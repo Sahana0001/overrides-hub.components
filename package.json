@@ -1,6 +1,6 @@
 {
   "name": "Hub.Components",
-  "version": "2.0.2",
+  "version": "2.0.2.alpha-1",
   "devDependencies": {
     "@iqmetrix/hub.common.tooling": "2.10.0-alpha.3"
   },
